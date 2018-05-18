@@ -27,8 +27,8 @@ export class FotoService{
         return this.httpClient.delete<FotoComponent[]>(this.url+foto._id);
     }
 
-    consultar(){
-
+    consultar(fotoId: string) : Observable<FotoComponent> {
+        return this.httpClient.get<FotoComponent>(this.url+fotoId)
     }
 
     alterar(){

@@ -9,7 +9,7 @@
     </div>
     <div class="row">
         <painel *ngFor="let item of listaFotos" titulo="{{item.titulo}}" class="col-md-4">
-            <a routerLink="cadastro">
+            <a [routerLink]="['/cadastro', item._id]">
                 <foto url="{{item.url}}" titulo="{{item.titulo}}"></foto>
             </a>   
             <button (click)="remover(item)" class="btn btn-danger">Remover</button>

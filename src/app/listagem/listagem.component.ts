@@ -10,7 +10,7 @@ import { FotoComponent } from '../foto/foto.component';
 export class ListagemComponent implements OnInit {
 
   listaFotos : FotoComponent[]
-
+  
   constructor(private service : FotoService){
     service.listar().subscribe(
         resposta => {
