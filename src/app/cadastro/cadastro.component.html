@@ -2,6 +2,7 @@
   <h1 class="text-center">Cadastrar Fotos</h1>
 </header>
 <section class="container">
+    <mensagem *ngIf="mensagem.texto" [tipo]="mensagem.tipo" [texto]="mensagem.texto"></mensagem>
   <div class="row">
     <form class="col-md-6" (ngSubmit)="salvar()">
       <div class="form-group">

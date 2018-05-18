@@ -9,12 +9,14 @@ import { FotoModule } from './foto/foto.module';
 import { ListagemComponent } from './listagem/listagem.component';
 import { PainelModule } from "./painel/painel.module";
 import { FotoService } from "./servicos/foto.service";
+import { MensagemComponent } from './mensagem/mensagem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListagemComponent,
-    CadastroComponent
+    CadastroComponent,
+    MensagemComponent
   ],
   imports: [
     BrowserModule, 

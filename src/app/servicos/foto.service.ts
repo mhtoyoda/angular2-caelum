@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { Injectable } from "@angular/core";
 import { FotoComponent } from "../foto/foto.component";
+import { map } from "rxjs/operators";
+import { MensagemComponent } from "../mensagem/mensagem.component";
 
 @Injectable()
 export class FotoService{
@@ -19,8 +21,15 @@ export class FotoService{
         return this.httpClient.get<FotoComponent[]>(this.url)
     }
 
-    cadastrar(foto : FotoComponent) : Observable<Object>{
-        return this.httpClient.post(this.url, foto, this.cabecalho);
+    cadastrar(foto : FotoComponent) : Observable<MensagemComponent>{
+        return this.httpClient.post(this.url, foto, this.cabecalho)
+        .pipe( map( () => {
+            let mensagem = new MensagemComponent()
+            mensagem.texto = `Foto ${foto.titulo} cadastrada com sucesso!`
+            mensagem.tipo = 'success'
+            return mensagem
+        })
+        );
     }
 
     deletar(foto : FotoComponent) : Observable<FotoComponent[]>{
