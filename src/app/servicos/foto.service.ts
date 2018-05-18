@@ -31,7 +31,7 @@ export class FotoService{
         return this.httpClient.get<FotoComponent>(this.url+fotoId)
     }
 
-    alterar(){
-
+    alterar(foto : FotoComponent): Observable<FotoComponent> {
+        return this.httpClient.put<FotoComponent>(this.url+foto._id, foto)
     }
 }
