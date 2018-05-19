@@ -1,6 +1,6 @@
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ModuloRoteador } from "./app.routes";
@@ -24,7 +24,8 @@ import { MensagemComponent } from './mensagem/mensagem.component';
     PainelModule,
     ModuloRoteador,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [FotoService],
   bootstrap: [AppComponent]
