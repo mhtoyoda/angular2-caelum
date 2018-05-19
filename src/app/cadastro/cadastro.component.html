@@ -4,22 +4,24 @@
 <section class="container">
     <mensagem *ngIf="mensagem.texto" [tipo]="mensagem.tipo" [texto]="mensagem.texto"></mensagem>
   <div class="row">
-    <form class="col-md-6" (ngSubmit)="salvar()">
+    <form #formCadastro="ngForm" class="col-md-6" (ngSubmit)="salvar()">
       <div class="form-group">
         <label>Título</label>
-        <input [(ngModel)]="foto.titulo" type="text" class="form-control" name="titulo">
+        <input [(ngModel)]="foto.titulo" #inputTitulo="ngModel" type="text" class="form-control" name="titulo" required>
+        <mensagem *ngIf="inputTitulo.invalid" texto="Texto obrigatório" tipo="danger"></mensagem>
       </div>
       <div class="form-group">
           <label>URL</label>
-          <input [(ngModel)]="foto.url" type="text" class="form-control" name="url">
+          <input [(ngModel)]="foto.url" #inputUrl="ngModel" type="text" class="form-control" name="url" required>
+          <mensagem *ngIf="inputUrl.invalid" texto="Url obrigatório" tipo="danger"></mensagem>
       </div>
       <div class="form-group">
           <label>Descrição</label>
           <textarea [(ngModel)]="foto.descricao" type="text" class="form-control" name="descricao"></textarea>
       </div>
       <a routerLink="" class="btn btn-secondary">Voltar</a>
-      <button type="submit" class="btn btn-primary">Salvar</button>
-    </form>
+      <button [disabled]="formCadastro.invalid" type="submit" class="btn btn-primary">Salvar</button>
+    </form> 
     <aside class="col-md-4">
       <foto data-foto url={{foto.url}} titulo="{{foto.titulo}}"></foto>
     </aside>
