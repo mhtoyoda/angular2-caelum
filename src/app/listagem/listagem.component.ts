@@ -9,7 +9,7 @@ import { FotoComponent } from '../foto/foto.component';
 })
 export class ListagemComponent implements OnInit {
 
-  listaFotos : FotoComponent[]
+  listaFotos : FotoComponent[] = []
   
   constructor(private service : FotoService){
     service.listar().subscribe(
